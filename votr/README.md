@@ -11,6 +11,8 @@ votr/
 |-- terraform.tf
 `-- variables.tf
 ```
+## Implementation Topology:
+![image](./.images/flaskappwithco--0pj2e5xzwvx.png)
 
 ## Summary:
 
@@ -26,6 +28,5 @@ The backend of this template is local, but a remote backend can be implemented a
 
 This is an app developed on flask, that connects to a SQL database to store the results of a real-time poll, for the connection to the SQL database (which runs on a Cloud SQL instance), is done via private service connect, the root user and password are stored on secret manager, also the firewall rules are implemented to ensure connectivity on the project. The L7LB is implemented with a module that abstracts the complexity behind creating a L7LB on GCP. IAM service accounts are implemented to separate the roles of the instances, and allow access to the secrets API, the Cloud Router + NAT Gateway is used to download the necessary packages from the internet to implement the flask app on the Compute Instance.
 
-## Implementation Topology:
 
-![image](./.images/flaskappwithco--0pj2e5xzwvx.png)
+
